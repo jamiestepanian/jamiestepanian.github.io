@@ -232,7 +232,7 @@ https://github.com/alex-shpak/hugo-book
 <li>EN/ACK</li>
 </ol>
 <p>After probing the serial bus, and attempting several adapters, I had limited success with the software/hardware flow control options. The USB serial adapters don&rsquo;t react gracefully when backpressure is asserted for long periods (&gt;100ms). Instead it is possible to use a simple piece of software to read the print buffer depth, and send out the HPGL in chunks. After a chunk is sent, the printer is polled with a special command to read the buffer level. This ensures that the buffer is always fed, and never overflowed. The following Linux program may be used: <a href="https://github.com/jamiestepanian/7550a_stream">hp7550a_stream</a>.</p>
-<p>Using the above program, first set your plotters serial settings to the following. Access the menu by pressing &ldquo;Enter&rdquo; followed by &ldquo;Next Display&rdquo;.</p>
+<p>Using the above program, first set your plotter serial settings to the following. Access the menu by pressing &ldquo;Enter&rdquo; followed by &ldquo;Next Display&rdquo;.</p>
 <ul>
 <li>Data Flow: Remote, Standalone</li>
 <li>Bypass: Bypass off</li>
@@ -316,7 +316,7 @@ https://github.com/alex-shpak/hugo-book
 <img class="center_custom" style="width:70%" src="/images/HP7550A/sketch.png" />
 <center><b>vsketch Example</b></center>
 
-<p>Print of the above plot at minimum pen velocity. Satisfying to watch, even if the pen colors choice is unappealing in this case.
+<p>Print of the above plot at minimum pen velocity. Satisfying to watch, even if the pen color choice is unappealing in this case.
 
 
 
