@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Operating the HP 7550A Pen Plotter # The HP 7550A is the king of 1980s desktop pen plotters. It supports up to 8 pens, an automatic paper feeder, and can reach 6g of acceleration. HP plotters were originally designed for business and engineering customers, and are long obsolete. They at least remain incredibly satisfying to watch. Today they can be used as a inexpensive plotter for generative art. The following post is a collection of notes on operating the HP 7550A for that purpose.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://jamie.stepanian.ca/docs/hp7550a/">
+  <meta property="og:site_name" content="Jamie Stepanian">
+  <meta property="og:title" content="HP 7550A Pen Plotter">
+  <meta property="og:description" content="Operating the HP 7550A Pen Plotter # The HP 7550A is the king of 1980s desktop pen plotters. It supports up to 8 pens, an automatic paper feeder, and can reach 6g of acceleration. HP plotters were originally designed for business and engineering customers, and are long obsolete. They at least remain incredibly satisfying to watch. Today they can be used as a inexpensive plotter for generative art. The following post is a collection of notes on operating the HP 7550A for that purpose.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+  <meta property="article:section" content="docs">
+<title>HP 7550A Pen Plotter | Jamie Stepanian</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" >
+<link rel="stylesheet" href="/book.min.2cf441be3855100be04c559b9a211f7e589658102247f47ac41e232c7bd13d13.css" integrity="sha256-LPRBvjhVEAvgTFWbmiEffliWWBAiR/R6xB4jLHvRPRM=" crossorigin="anonymous">
+  
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+  
+
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><img src="/icon2.png" alt="Logo" /><span>Jamie Stepanian</span>
+  </a>
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/hp7550a/" class="active">HP 7550A Pen Plotter</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>HP 7550A Pen Plotter</strong>
+
+  <label for="toc-control">
+    
+  </label>
+</div>
+
+
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h1 id="operating-the-hp-7550a-pen-plotter">
+  Operating the HP 7550A Pen Plotter
+  <a class="anchor" href="#operating-the-hp-7550a-pen-plotter">#</a>
+</h1>
+
+
+
+<style>
+.center_custom {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 768px){
+  .book-article img {
+    min-width: 100%;
+  }
+}
+</style>
+
+<img class="center_custom" style="width:80%" src="/images/HP7550A/top.jpg" />
+<center><b></b></center>
+
+<p>The HP 7550A is the king of 1980s desktop pen plotters. It supports up to 8 pens, an automatic paper feeder, and can reach 6g of acceleration. HP plotters were originally designed for business and engineering customers, and are long obsolete. They at least remain incredibly satisfying to watch. Today they can be used as a inexpensive plotter for <a href="https://www.generativehut.com/tutorials">generative art</a>. The following post is a collection of notes on operating the HP 7550A for that purpose. I have also interfaced it over GPIB with my vintage HP testgear, but that is not the focus of this post.</p>
+<h2 id="preparations">
+  Preparations
+  <a class="anchor" href="#preparations">#</a>
+</h2>
+<p>The 7550A is designed to accept stubby HP plotter pens, which are no longer cheaply available. It is more desirable to use a variety of off the shelf pens. This can be accomplished with 3D printed adapters. Before attempting this, it is necessary to make a modification the 7550A plastic body to allow longer pens to pass from the carousel to the page. Unscrew the top plastic molding, and use a hacksaw to cut a path for the pens. Perform the cut after disassembling to avoid lodging plastic particles in the machine. It is also necessary to disable the lid sensor, this can be done by simply removing the spring from the interior plunger.</p>
+
+
+
+<style>
+.center_custom {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 768px){
+  .book-article img {
+    min-width: 100%;
+  }
+}
+</style>
+
+<img class="center_custom" style="width:50%" src="/images/HP7550A/cut.jpg" />
+<center><b>Plastic Cutout</b></center>
+
+<p>The pen adapters are easily 3D printed. <a href="https://github.com/juliendorra/3D-printable-plotter-adapters-for-pens-and-refills">This repository</a> is a good starting point, containing models for several common pens. The OpenSCAD code may be customized to match your pens. Trial and error is necessary to get a snug fit. The adapters must also be easily removable so you can cap them after your print session. The rubber gasket in the carousel may not keep your pens tips from drying out long term.</p>
+
+
+
+<style>
+.center_custom {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 768px){
+  .book-article img {
+    min-width: 100%;
+  }
+}
+</style>
+
+<img class="center_custom" style="width:50%" src="/images/HP7550A/adapt.jpg" />
+<center><b>Pen Adapter on a Stabilo 88</b></center>
+
+<p>The rear of the printer accepts a 25-pin RS-232 and GPIB. Do not use the &ldquo;Terminal&rdquo; RS-232 on the rear, it is not relevant to this use case. Connecting to a modern PC is most convenient through a USB to 9-pin RS232 adapter. A 9-pin to 25-pin RS-232 adapter is used in this case.</p>
+
+
+
+<style>
+.center_custom {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 768px){
+  .book-article img {
+    min-width: 100%;
+  }
+}
+</style>
+
+<img class="center_custom" style="width:50%" src="/images/HP7550A/25pin.jpg" />
+<center><b>25-pin to 9-pin DSUB</b></center>
+
+<p>The printer supports streaming HPGL code into the serial input. This is a generic CAM language for all HP plotters, and supported by plenty of software. Details on this language can be found in the <a href="https://github.com/jamiestepanian/7550a_stream/blob/0c6579b79aae73e5fe3942e7b895161bde9089f8/HP_7550A_PROG_MAN.pdf">HP programming manual</a>, or in this <a href="https://www.isoplotec.co.jp/HPGL/eHPGL.htm">HPGL Reference Guide</a>. The printer also supports device specific commands for things like checking the various buffer levels. Luckily, all of this detail may be overlooked if the desire is simply to print SVG files exported from any application.</p>
+<p>Firstly we need a convenient way to stream HPGL. The plotter must apply backpressure on the serial link during prints. The bitrate out of the print buffer varies wildly depending on the operation in progress, and pen speed. Chances are the default 1024 byte print buffer will not fit the entire plot. The printer may be operated in the following handshake modes for this purpose:</p>
+<ol>
+<li>None</li>
+<li>XON/XOFF</li>
+<li>Hardware</li>
+<li>EN/ACK</li>
+</ol>
+<p>After probing the serial bus, and attempting several adapters, I had limited success with the software/hardware flow control options. The USB serial adapters don&rsquo;t react gracefully when backpressure is asserted for long periods (&gt;100ms). Instead it is possible to use a simple piece of software to read the print buffer depth, and send out the HPGL in chunks. After a chunk is sent, the printer is polled with a special command to read the buffer level. This ensures that the buffer is always fed, and never overflowed. The following Linux program may be used: <a href="https://github.com/jamiestepanian/7550a_stream">hp7550a_stream</a>.</p>
+<p>Using the above program, first set your plotters serial settings to the following. Access the menu by pressing &ldquo;Enter&rdquo; followed by &ldquo;Next Display&rdquo;.</p>
+<ul>
+<li>Data Flow: Remote, Standalone</li>
+<li>Bypass: Bypass off</li>
+<li>Handshake: None, Direct</li>
+<li>Baud: 1200</li>
+<li>Duplex: Full</li>
+<li>Parity: 8-bits Odd</li>
+</ul>
+<p>Now the 7550a_stream application may be used with any HPGL file:</p>
+<pre tabindex="0"><code>$ 7555a_stream -d &lt;serial device&gt; -f &lt;HPGL file&gt; 
+</code></pre><p>This is an example HPGL file useful for testing: <a href="/columbia.hpgl">columbia.hpgl</a></p>
+
+
+
+<style>
+.center_custom {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 768px){
+  .book-article img {
+    min-width: 100%;
+  }
+}
+</style>
+
+<img class="center_custom" style="width:70%" src="/images/HP7550A/columbia.jpg" />
+<center><b>columbia.hpgl</b></center>
+
+<h2 id="vpype">
+  vpype
+  <a class="anchor" href="#vpype">#</a>
+</h2>
+<p>SVG is the standard vector graphics format, and may be exported from any generative art framework. <a href="https://vpype.readthedocs.io/en/latest">vpype</a> is a python utility useful for conversion from SVG into HPGL. It is highly configurable, and even supports rendering previews.</p>
+<p>For a simple conversion:</p>
+<pre tabindex="0"><code>$ vpype read in.svg layout --fit-to-margins 4cm a4 write --device hp7550 out.hpgl
+</code></pre><p>For SVG images with many line segments or overlapping lines, additional flags can be used to simplify the output HPGL.</p>
+<pre tabindex="0"><code>$ vpype read in.svg layout --fit-to-margins 4cm a4 linemerge --tolerance 0.01mm linesort linesimplify -t 0.02mm write --device hp7550 out.hpgl
+</code></pre><p>The single manual edit I make on the output HPGL file is the velocity control for the pens. Depending on the pen type, a slower speed may improve the image quality. Add the following command to the beginning of the file, after the &ldquo;IN;DF;&rdquo; commands.</p>
+
+
+
+<style>
+.center_custom {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 768px){
+  .book-article img {
+    min-width: 100%;
+  }
+}
+</style>
+
+<img class="center_custom" style="width:70%" src="/images/HP7550A/vel.png" />
+<center><b></b></center>
+
+<h2 id="vsketch">
+  vsketch
+  <a class="anchor" href="#vsketch">#</a>
+</h2>
+<p><a href="https://github.com/abey79/vsketch">vsketch</a> is a tool used for creating generative art programmed in Python. Adjustable parameters may be exposed as GUI elements, and the user can interact with them by executing the vsketch GUI.</p>
+
+
+
+<style>
+.center_custom {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 768px){
+  .book-article img {
+    min-width: 100%;
+  }
+}
+</style>
+
+<img class="center_custom" style="width:70%" src="/images/HP7550A/sketch.png" />
+<center><b>vsketch Example</b></center>
+
+<p>Print of the above plot at minimum pen velocity. Satisfying to watch, even if the pen colors choice is unappealing in this case.
+
+
+
+
+
+<style>
+.center_custom {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 3%;
+}
+</style>
+
+<video playsinline autoplay muted loop preload="auto" width="70%" class="center_custom">
+  <source src="/images/HP7550A/square.webm" type="video/webm">
+</video>
+<center ></b></center>
+</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -6,7 +6,14 @@
     <description>Recent content on Jamie Stepanian</description>
     <generator>Hugo 0.125.1</generator>
     <language>en-us</language>
-    <lastBuildDate></lastBuildDate>
+    <lastBuildDate>Mon, 01 Jan 0001 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://jamie.stepanian.ca/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HP 7550A Pen Plotter</title>
+      <link>https://jamie.stepanian.ca/docs/hp7550a/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://jamie.stepanian.ca/docs/hp7550a/</guid>
+      <description>Operating the HP 7550A Pen Plotter # The HP 7550A is the king of 1980s desktop pen plotters. It supports up to 8 pens, an automatic paper feeder, and can reach 6g of acceleration. HP plotters were originally designed for business and engineering customers, and are long obsolete. They at least remain incredibly satisfying to watch. Today they can be used as a inexpensive plotter for generative art. The following post is a collection of notes on operating the HP 7550A for that purpose.</description>
+    </item>
   </channel>
 </rss>
