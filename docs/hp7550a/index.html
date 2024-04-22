@@ -267,12 +267,13 @@ https://github.com/alex-shpak/hugo-book
   vpype
   <a class="anchor" href="#vpype">#</a>
 </h2>
-<p>SVG is the standard vector graphics format, and may be exported from any generative art framework. <a href="https://vpype.readthedocs.io/en/latest">vpype</a> is a python utility useful for conversion from SVG into HPGL. It is highly configurable, and even supports rendering previews.</p>
+<p>SVG is the standard vector graphics format supported by generative art programs. <a href="https://vpype.readthedocs.io/en/latest">vpype</a> is a python utility useful for conversion from SVG into HPGL. It is highly configurable, and even supports rendering previews.</p>
 <p>For a simple conversion:</p>
-<pre tabindex="0"><code>$ vpype read in.svg layout --fit-to-margins 4cm a4 write --device hp7550 out.hpgl
+<pre tabindex="0"><code>$ vpype read in.svg layout --fit-to-margins 4cm a4 write --device hp7550 --velocity 10 out.hpgl
 </code></pre><p>For SVG images with many line segments or overlapping lines, additional flags can be used to simplify the output HPGL.</p>
-<pre tabindex="0"><code>$ vpype read in.svg layout --fit-to-margins 4cm a4 linemerge --tolerance 0.01mm linesort linesimplify -t 0.02mm write --device hp7550 out.hpgl
-</code></pre><p>The single manual edit I make on the output HPGL file is the velocity control for the pens. Depending on the pen type, a slower speed may improve the image quality. Add the following command to the beginning of the file, after the &ldquo;IN;DF;&rdquo; commands.</p>
+<pre tabindex="0"><code>$ vpype read in.svg layout --fit-to-margins 4cm a4 linemerge --tolerance 0.01mm linesort \
+  linesimplify -t 0.02mm write --device hp7550 --velocity 10 out.hpgl
+</code></pre><p>The velocity argument controls the speed for all the pens. Depending on the pen type, a slower velocity may improve the image quality. The range for this value on the HP 7550A is 1 to 80.</p>
 
 
 
@@ -292,6 +293,7 @@ https://github.com/alex-shpak/hugo-book
 <img class="center_custom" style="width:70%" src="/images/HP7550A/vel.png" />
 <center><b></b></center>
 
+<p>vpype</p>
 <h2 id="vsketch">
   vsketch
   <a class="anchor" href="#vsketch">#</a>
