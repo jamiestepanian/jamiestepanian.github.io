@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="
-  Operating a HP 8510C VNA
+  Operating an HP 8510C VNA
   #
 
 
@@ -15,15 +15,15 @@
 
 HP 8510C System with 18GHz Test Set
 
-The following is a collection of notes on my efforts to purchase, repair, and operate a HP 8510C VNA.
-The 8510C was a successor to the venerable HP 8410C. For many years I operated a HP 8410C. It did not have built in microprocessor control, source phaselock, or calibration features. I worked around this with a custom source phase locker, data acquisition unit, paired with a QT based GUI. Although it has served me well, I was looking for something with higher performance test sets and faster sweep times.">
+The following is a collection of notes on my efforts to purchase, repair, and operate an HP 8510C VNA.
+The 8510C was a successor to the venerable HP 8410C. For many years I operated an HP 8410C. It did not have built in microprocessor control, source phaselock, or calibration features. I worked around this with a custom source phase locker, data acquisition unit, paired with a QT based GUI. Although it has served me well, I was looking for something with higher performance test sets and faster sweep times.">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
 <meta name="color-scheme" content="light dark"><meta property="og:url" content="https://jamie.stepanian.ca/docs/hp8510c/">
   <meta property="og:site_name" content="Jamie Stepanian">
   <meta property="og:title" content="HP 8510C VNA">
-  <meta property="og:description" content="Operating a HP 8510C VNA # HP 8510C System with 18GHz Test Set The following is a collection of notes on my efforts to purchase, repair, and operate a HP 8510C VNA.
-The 8510C was a successor to the venerable HP 8410C. For many years I operated a HP 8410C. It did not have built in microprocessor control, source phaselock, or calibration features. I worked around this with a custom source phase locker, data acquisition unit, paired with a QT based GUI. Although it has served me well, I was looking for something with higher performance test sets and faster sweep times.">
+  <meta property="og:description" content="Operating an HP 8510C VNA # HP 8510C System with 18GHz Test Set The following is a collection of notes on my efforts to purchase, repair, and operate an HP 8510C VNA.
+The 8510C was a successor to the venerable HP 8410C. For many years I operated an HP 8410C. It did not have built in microprocessor control, source phaselock, or calibration features. I worked around this with a custom source phase locker, data acquisition unit, paired with a QT based GUI. Although it has served me well, I was looking for something with higher performance test sets and faster sweep times.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -160,9 +160,9 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown book-article"><h1 id="operating-a-hp-8510c-vna">
-  Operating a HP 8510C VNA
-  <a class="anchor" href="#operating-a-hp-8510c-vna">#</a>
+  <article class="markdown book-article"><h1 id="operating-an-hp-8510c-vna">
+  Operating an HP 8510C VNA
+  <a class="anchor" href="#operating-an-hp-8510c-vna">#</a>
 </h1>
 <p>
 
@@ -183,15 +183,15 @@ https://github.com/alex-shpak/hugo-book
 <img class="center_custom" style="width:90%" src="/images/HP8510C/first.webp" />
 <center><b>HP 8510C System with 18GHz Test Set</b></center>
 
-The following is a collection of notes on my efforts to purchase, repair, and operate a HP 8510C VNA.</p>
-<p>The 8510C was a successor to the venerable HP 8410C. For many years I operated a HP 8410C. It did not have built in microprocessor control, source phaselock, or calibration features. I worked around this with a custom source phase locker, data acquisition unit, paired with a QT based GUI. Although it has served me well, I was looking for something with higher performance test sets and faster sweep times.</p>
+The following is a collection of notes on my efforts to purchase, repair, and operate an HP 8510C VNA.</p>
+<p>The 8510C was a successor to the venerable HP 8410C. For many years I operated an HP 8410C. It did not have built in microprocessor control, source phaselock, or calibration features. I worked around this with a custom source phase locker, data acquisition unit, paired with a QT based GUI. Although it has served me well, I was looking for something with higher performance test sets and faster sweep times.</p>
 <p>I previously designed a compact USB based 100MHz to 6GHz VNA, with a custom GUI and SCPI interface. Extending a similar DIY project to 18GHz would likely fall short of the HP 8510 performance. Potential pitfalls:</p>
 <ul>
 <li>I previously did some experimentation with <a href="http://www.ke5fx.com/Broadband_Coupler_Dunsmore.pdf">DIY resistive bridge couplers</a>. These were implemented with 0201 RF resistors, high quality rigid coax, and low Df substrates. I never managed to get &gt;10dB of uncorrected directivity after the 8 GHz mark. A typical HP 8510 test set offers &gt;22dB directivity across the frequency range.</li>
 <li>A typical HP 8510 system will have &gt;80dB isolation between ports across the full frequency range. This is difficult to replicate on a single PCB design, even with a milled shield.</li>
 <li>A YIG + YTF based RF source offers excellent phase noise and harmonic rejection. Most DIY solutions use monolithic PLL ICs, and emit up to -10dBc of harmonics out the test port. This is unsuitable for non-linear DUTs.</li>
 </ul>
-<p>With that in mind, I began collecting parts to assemble a HP 8510C system. As with the HP 8410C, it is comprised of separate units for the display section, IF section, RF source, and test set. Specialized receiver sets are also available for the antenna test system.  Most of my units were purchased in untested or broken state, and therefore the total cost was orders of magnitude cheaper compared to a modern platform.</p>
+<p>With that in mind, I began collecting parts to assemble an HP 8510C system. As with the HP 8410C, it is comprised of separate units for the display section, IF section, RF source, and test set. Specialized receiver sets are also available for the antenna test system.  Most of my units were purchased in untested or broken state, and therefore the total cost was orders of magnitude cheaper compared to a modern platform.</p>
 <h1 id="system-overview">
   System Overview
   <a class="anchor" href="#system-overview">#</a>
@@ -402,7 +402,7 @@ Note that you will encounter boot errors if the IF section, test set, and RF sou
   IF Section
   <a class="anchor" href="#if-section">#</a>
 </h1>
-<p>The HP 85102 IF section must match the display unit suffix. These are sometimes found field upgraded from a &ldquo;B&rdquo; to a &ldquo;C&rdquo; suffix. No one has located a HP CLIP for the B/C 8510 units, so upgrading it yourself is probably not feasible.</p>
+<p>The HP 85102 IF section must match the display unit suffix. These are sometimes found field upgraded from a &ldquo;B&rdquo; to a &ldquo;C&rdquo; suffix. No one has located an HP CLIP for the B/C 8510 units, so upgrading it yourself is probably not feasible.</p>
 
 
 
@@ -453,7 +453,7 @@ Note that you will encounter boot errors if the IF section, test set, and RF sou
 </h1>
 <p>Several RF source options are supported. The <a href="https://www.kirkbymicrowave.co.uk/Support/vector-network-analyzers/HP-Agilent-Keysight/8510/8510C_Installation_Pre_Flight_checkout.pdf">HP 8510C Preflight Checkout</a> document is handy to ensure all the firmware variants and interconnect requirements are satisfied.</p>
 <p>The HP 8340A/B and HP 8360 series sources are the most desirable options. They are synthesized sources, and result in faster sweep times. They remain extremely expensive on the used market.</p>
-<p>The HP 8350B mainframe is the cheapest option. I already owned a HP 83592B (10MHz to 20GHz) source unit, and mainframe.</p>
+<p>The HP 8350B mainframe is the cheapest option. I already owned an HP 83592B (10MHz to 20GHz) source unit, and mainframe.</p>
 <p>My source unit was initially exhibiting low power (ALC unlevel). This was repaired by a full reassembly, re-torquing the SMA connectors. The unit is a tight packed maze of rigid line coax and RF modules. It&rsquo;s a marvel of mechanical packaging, and a servicing nightmare. After reassembly, I could adjust the YTM &ldquo;peak&rdquo; knob on the front panel to achieve the rated power output at fixed frequency points. Sweeps would still fail with ALC unleveling.</p>
 
 
@@ -536,7 +536,7 @@ Note that you will encounter boot errors if the IF section, test set, and RF sou
   <a class="anchor" href="#troubleshooting">#</a>
 </h1>
 <p>After all of that effort, I assembled my system and found it only would capture in single frequency points. A sweep measurement would fail with a red asterisk. Start/stop frequency could not be adjusted. Frustratingly, no error code was presented. After probing the sweep control board on the IF section with a logic analyzer, I narrowed the issue down to a hang on the system GPIB bus.</p>
-<p>The GPIB bus was hanging because of my foolish swap of GPIB PCB from a HP 8350A sweeper. Even though I previously verified the schematics were identical, I missed a critical BOM change. In the &ldquo;B&rdquo; variant, HP changed the main GPIB controller IC from a D8291 to a D8291A. The A suffix indicates a later IC revision with additional GPIB extensions. Luckily the D8291A on my NiCD acid eaten board was still functional, and swapping ICs brought this VNA to life.</p>
+<p>The GPIB bus was hanging because of my foolish swap of GPIB PCB from an HP 8350A sweeper. Even though I previously verified the schematics were identical, I missed a critical BOM change. In the &ldquo;B&rdquo; variant, HP changed the main GPIB controller IC from a D8291 to a D8291A. The A suffix indicates a later IC revision with additional GPIB extensions. Luckily the D8291A on my NiCD acid eaten board was still functional, and swapping ICs brought this VNA to life.</p>
 
 
 
@@ -610,7 +610,7 @@ Note that you will encounter boot errors if the IF section, test set, and RF sou
   <a class="anchor" href="#calibration">#</a>
 </h1>
 <p>Calibration on this instrument is highly configurable. Cal kits can be defined manually with the keypad, but a USB-GPIB adapter dramatically simplifies the process.</p>
-<p>The 8510C can store coefficients for up to 2 cal kit models. There is no preset option for a generic SOLT cal. The default cal kit definitions are for a HP 3.5mm and 7mm kit, which require a sliding load to complete a cal sequence. Purchasing a professional mechanical cal kit from Keysight would cost 10x what I paid for my entire VNA system, so a DIY approach is needed.</p>
+<p>The 8510C can store coefficients for up to 2 cal kit models. There is no preset option for a generic SOLT cal. The default cal kit definitions are for an HP 3.5mm and 7mm kit, which require a sliding load to complete a cal sequence. Purchasing a professional mechanical cal kit from Keysight would cost 10x what I paid for my entire VNA system, so a DIY approach is needed.</p>
 <p>The coefficients are uploaded via GPIB with a windows program from HP: <a href="https://kirkbymicrowave.co.uk/Support/vector-network-analyzers/HP-Agilent-Keysight/software/VNA-cal-kit-manager.exe">VNA Cal Kit Manager V2.1</a>. You may also use this program to create your own custom cal kits.</p>
 
 
@@ -813,7 +813,7 @@ cal.write()
   Rack mounting
   <a class="anchor" href="#rack-mounting">#</a>
 </h1>
-<p>One thing to consider with this system is mounting it in your lab. The rear IO must be accessible, so the only good option is rack mounting. The test set must be close to your table to minimize cable length to your DUT. The test set should also be close to the RF source, so you can interconnect them with a minimal length of coax. I used my main 34U rack for the test set and RF source, and a secondary 9U rack on a tool stand for the display and IF section. This was a great solution for me. Note that you will need rails to support this type of gear. I used some 2.5mm thick shelving angle bar for this purpose. Assembling a HP 8510C system can be cost effective, but it will never be compact.</p>
+<p>One thing to consider with this system is mounting it in your lab. The rear IO must be accessible, so the only good option is rack mounting. The test set must be close to your table to minimize cable length to your DUT. The test set should also be close to the RF source, so you can interconnect them with a minimal length of coax. I used my main 34U rack for the test set and RF source, and a secondary 9U rack on a tool stand for the display and IF section. This was a great solution for me. Note that you will need rails to support this type of gear. I used some 2.5mm thick shelving angle bar for this purpose. Assembling an HP 8510C system can be cost effective, but it will never be compact.</p>
 </article>
  
       
