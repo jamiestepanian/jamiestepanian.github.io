@@ -4,16 +4,23 @@
     <title>Jamie Stepanian</title>
     <link>https://jamie.stepanian.ca/</link>
     <description>Recent content on Jamie Stepanian</description>
-    <generator>Hugo 0.125.1</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 01 Jan 0001 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 01 Nov 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://jamie.stepanian.ca/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HP 8510C VNA</title>
+      <link>https://jamie.stepanian.ca/docs/hp8510c/</link>
+      <pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://jamie.stepanian.ca/docs/hp8510c/</guid>
+      <description>&lt;h1 id=&#34;operating-a-hp-8510c-vna&#34;&gt;&#xA;  Operating a HP 8510C VNA&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#operating-a-hp-8510c-vna&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;&#xA;&#xA;&#xA;&lt;style&gt;&#xA;.center_custom {&#xA;  display: block;&#xA;  margin-left: auto;&#xA;  margin-right: auto;&#xA;}&#xA;@media (max-width: 768px){&#xA;  .book-article img {&#xA;    min-width: 100%;&#xA;  }&#xA;}&#xA;&lt;/style&gt;&#xA;&#xA;&lt;img class=&#34;center_custom&#34; style=&#34;width:90%&#34; src=&#34;https://jamie.stepanian.ca/images/HP8510C/first.webp&#34; /&gt;&#xA;&lt;center&gt;&lt;b&gt;HP 8510C System with 18GHz Test Set&lt;/b&gt;&lt;/center&gt;&#xA;&#xA;The following is a collection of notes on my efforts to purchase, repair, and operate a HP 8510C VNA.&lt;/p&gt;&#xA;&lt;p&gt;The 8510C was a successor to the venerable HP 8410C. For many years I operated a HP 8410C. It did not have built in microprocessor control, source phaselock, or calibration features. I worked around this with a custom source phase locker, data acquisition unit, paired with a QT based GUI. Although it has served me well, I was looking for something with higher performance test sets and faster sweep times.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>HP 7550A Pen Plotter</title>
       <link>https://jamie.stepanian.ca/docs/hp7550a/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://jamie.stepanian.ca/docs/hp7550a/</guid>
-      <description>Operating the HP 7550A Pen Plotter # The HP 7550A is the king of 1980s desktop pen plotters. It supports up to 8 pens, an automatic paper feeder, and can reach 6g of acceleration. HP plotters were originally designed for business and engineering customers, and are long obsolete. They at least remain incredibly satisfying to watch. Today they can be used as a inexpensive plotter for generative art. The following post is a collection of notes on operating the HP 7550A for that purpose.</description>
+      <description>&lt;h1 id=&#34;operating-the-hp-7550a-pen-plotter&#34;&gt;&#xA;  Operating the HP 7550A Pen Plotter&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#operating-the-hp-7550a-pen-plotter&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&#xA;&#xA;&#xA;&lt;style&gt;&#xA;.center_custom {&#xA;  display: block;&#xA;  margin-left: auto;&#xA;  margin-right: auto;&#xA;}&#xA;@media (max-width: 768px){&#xA;  .book-article img {&#xA;    min-width: 100%;&#xA;  }&#xA;}&#xA;&lt;/style&gt;&#xA;&#xA;&lt;img class=&#34;center_custom&#34; style=&#34;width:80%&#34; src=&#34;https://jamie.stepanian.ca/images/HP7550A/top.jpg&#34; /&gt;&#xA;&lt;center&gt;&lt;b&gt;&lt;/b&gt;&lt;/center&gt;&#xA;&#xA;&lt;p&gt;The HP 7550A is the king of 1980s desktop pen plotters. It supports up to 8 pens, an automatic paper feeder, and can reach 6g of acceleration. HP plotters were originally designed for business and engineering customers, and are long obsolete. They at least remain incredibly satisfying to watch. Today they can be used as a inexpensive plotter for &lt;a href=&#34;https://www.generativehut.com/tutorials&#34;&gt;generative art&lt;/a&gt;. The following post is a collection of notes on operating the HP 7550A for that purpose. I have also interfaced it over GPIB with my vintage HP testgear, but that is not the focus of this post.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

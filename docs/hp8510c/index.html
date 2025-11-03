@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  Operating a HP 8510C VNA
+  #
+
+
+
+
+
+
+
+HP 8510C System with 18GHz Test Set
+
+The following is a collection of notes on my efforts to purchase, repair, and operate a HP 8510C VNA.
+The 8510C was a successor to the venerable HP 8410C. For many years I operated a HP 8410C. It did not have built in microprocessor control, source phaselock, or calibration features. I worked around this with a custom source phase locker, data acquisition unit, paired with a QT based GUI. Although it has served me well, I was looking for something with higher performance test sets and faster sweep times.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://jamie.stepanian.ca/docs/hp8510c/">
+  <meta property="og:site_name" content="Jamie Stepanian">
+  <meta property="og:title" content="HP 8510C VNA">
+  <meta property="og:description" content="Operating a HP 8510C VNA # HP 8510C System with 18GHz Test Set The following is a collection of notes on my efforts to purchase, repair, and operate a HP 8510C VNA.
+The 8510C was a successor to the venerable HP 8410C. For many years I operated a HP 8410C. It did not have built in microprocessor control, source phaselock, or calibration features. I worked around this with a custom source phase locker, data acquisition unit, paired with a QT based GUI. Although it has served me well, I was looking for something with higher performance test sets and faster sweep times.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+    <meta property="article:published_time" content="2025-11-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-11-01T00:00:00+00:00">
+<title>HP 8510C VNA | Jamie Stepanian</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="https://jamie.stepanian.ca/docs/hp8510c/">
+<link rel="stylesheet" href="/book.min.c244279185dc5bfbe7ff9d3558f5cbc1d0af8a22e110ce56230a0554f5d8c81f.css" integrity="sha256-wkQnkYXcW/vn/501WPXLwdCviiLhEM5WIwoFVPXYyB8=" crossorigin="anonymous"><!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+  
+
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><img src="/icon2.png" alt="Logo" class="book-icon" /><span>Jamie Stepanian</span>
+  </a>
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/hp8510c/" class="active">HP 8510C VNA</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/hp7550a/" class="">HP 7550A Pen Plotter</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>HP 8510C VNA</h3>
+
+  <label for="toc-control">
+    
+  </label>
+</div>
+
+
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h1 id="operating-a-hp-8510c-vna">
+  Operating a HP 8510C VNA
+  <a class="anchor" href="#operating-a-hp-8510c-vna">#</a>
+</h1>
+<p>
+
+
+<style>
+.center_custom {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 768px){
+  .book-article img {
+    min-width: 100%;
+  }
+}
+</style>
+
+<img class="center_custom" style="width:90%" src="/images/HP8510C/first.webp" />
+<center><b>HP 8510C System with 18GHz Test Set</b></center>
+
+The following is a collection of notes on my efforts to purchase, repair, and operate a HP 8510C VNA.</p>
+<p>The 8510C was a successor to the venerable HP 8410C. For many years I operated a HP 8410C. It did not have built in microprocessor control, source phaselock, or calibration features. I worked around this with a custom source phase locker, data acquisition unit, paired with a QT based GUI. Although it has served me well, I was looking for something with higher performance test sets and faster sweep times.</p>
+<p>I previously designed a compact USB based 100MHz to 6GHz VNA, with a custom GUI and SCPI interface. Extending a similar DIY project to 18GHz would likely fall short of the HP 8510 performance. Potential pitfalls:</p>
+<ul>
+<li>I previously did some experimentation with <a href="http://www.ke5fx.com/Broadband_Coupler_Dunsmore.pdf">DIY resistive bridge couplers</a>. These were implemented with 0201 RF resistors, high quality rigid coax, and low Df substrates. I never managed to get &gt;10dB of uncorrected directivity after the 8 GHz mark. A typical HP 8510 test set offers &gt;22dB directivity across the frequency range.</li>
+<li>A typical HP 8510 system will have &gt;80dB isolation between ports across the full frequency range. This is difficult to replicate on a single PCB design, even with a milled shield.</li>
+<li>A YIG + YTF based RF source offers excellent phase noise and harmonic rejection. Most DIY solutions use monolithic PLL ICs, and emit up to -10dBc of harmonics out the test port. This is unsuitable for non-linear DUTs.</li>
+</ul>
+<p>With that in mind, I began collecting parts to assemble a HP 8510C system. As with the HP 8410C, it is comprised of separate units for the display section, IF section, RF source, and test set. Specialized receiver sets are also available for the antenna test system.  Most of my units were purchased in untested or broken state, and therefore the total cost was orders of magnitude cheaper compared to a modern platform.</p>
+<h1 id="system-overview">
+  System Overview
+  <a class="anchor" href="#system-overview">#</a>
+</h1>
+<p>The following block diagram shows the high level flow between source, test set, IF detector, and display. The model below is the &ldquo;A&rdquo; suffix. It has a tape drive and a monochrome display. This was upgraded in the &ldquo;C&rdquo; suffix to a floppy drive and color display. Dedicated samplers and IF down converters are used for the four reference/test signals. IQ down conversion is performed in the analog domain. A single SAR ADC multiplexes between all channels for digitization.</p>
+<p>The sample selection and timing block controls ADC acquisitions in sweep mode, and modulates the stop sweep signal to halt the RF source sweep gen between test set SRD band switches. The internal/private GPIB bus is used for central control of VNA units by the display. The public bus is optionally used for VNA control and data acquisition by an external lab computer.
+
+
+
+<style>
+.center_custom {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 768px){
+  .book-article img {
+    min-width: 100%;
+  }
+}
+</style>
+
+<img class="center_custom" style="width:90%" src="/images/HP8510C/system_bd.png" />
+<center><b>HP 8510A Block Diagram</b></center>
+</p>
+<h1 id="display-unit">
+  Display Unit
+  <a class="anchor" href="#display-unit">#</a>
+</h1>
+<p>The display unit is the digital portion of the instrument. A Motorolla 68K microprocessor coordinates the measurements and UI. The rear has a D-Sub style interconnect to the IF section, internal GPIB bus, public GPIB bus, and RS232 serial. The rear display output appears like a VGA connector, but it uses a special implementation only supported by a few vintage CRT displays.</p>
+<p>Display units come configured either as an antenna test set (8530A) or VNA (85101C). Both configurations are physically identical, except for the software and security key. I purchased a 8530A, and converted it to a 85101C.</p>
+<p>The color CRT in these old HP instruments will go dim and hazy with age. The extent of the fading depends on runtime. Mine was barely legible. It was improved by tweaking the RGB trim pots on the display unit, but far from satisfactory. This could be corrected with a replacement Sony CHM-7501 or an expensive LCD replacement kit from NewScope. In my case, I had a spare CHM-7501 in better condition.</p>
+
+
+
+<style>
+.center_custom {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 768px){
+  .book-article img {
+    min-width: 100%;
+  }
+}
+</style>
+
+<img class="center_custom" style="width:50%" src="/images/HP8510C/CHM.webp" />
+<center><b>Sony CHM-7501</b></center>
+
+<p>The security key is a removable board with sockets for Programmable Array Logic (PAL) ICs. These PALs are interrogated by the software package on boot to determine if you are licensed for the VNA, antenna test, and/or time domain software. My unit came with the time domain and antenna (8530A) key populated. It would fail to boot into the VNA software. Luckily these PAL keys are trivial to reverse engineer and emulate.</p>
+<p><a href="https://www.ko4bb.com/manuals/178.249.214.8/HP_8510C_Boot_and_time_domain_key_PAL_emulator_EPROM.zip">PAL Key FPGA</a></p>
+<p>I was able to adapt the above project to an old Spartan 3E FPGA devboard I had laying in a bin. Not wanting to wait for parts, I bodged together a prototype. After installation into the motherboard, I was able to boot into the VNA software without issue. I will eventually print a custom PCB with a low end Efinix FPGA for a cleaner solution. A CPLD would be a better choice, but I did not find any options both cheaper than an Efinix FPGA and with free development tools.</p>
+
+
+
+<style>
+.center_custom {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 768px){
+  .book-article img {
+    min-width: 100%;
+  }
+}
+</style>
+
+<img class="center_custom" style="width:50%" src="/images/HP8510C/pal_1.webp" />
+<center><b>FPGA Based PAL Security Key Emulator</b></center>
+
+<p>The next hurdle is loading/updating the system software package. By far the easiest option is installing a <a href="https://github.com/keirf/flashfloppy">FlashFloppy</a> to adapt the floppy drive to USB stick. These units can be found cheaply from China. It is highly recommended to buy one explicitly advertising an onboard &ldquo;AT32F435RGT7&rdquo; MCU. To install into the HP 85101C display unit, remove the screws surrounding the keyboard, and pull it out. It will then be possible to replace the original floppy drive. The harnesses are pin compatible.</p>
+<p>Power on the unit, and update to the latest FlashFloppy+ firmware by following the GitHub instructions. You may then grab the latest system HFE images from the <a href="https://github.com/delat/hp8510c_fdd">HP8510C FDD Image Repository</a>.</p>
+<p>
+
+
+<style>
+.center_custom {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 768px){
+  .book-article img {
+    min-width: 100%;
+  }
+}
+</style>
+
+<img class="center_custom" style="width:50%" src="/images/HP8510C/floppy.webp" />
+<center><b>Gotek/FlashFloppy in HP 8510C</b></center>
+
+Note that you will encounter boot errors if the IF section, test set, and RF source are not connected and operating. The system also requires a specific power on sequence:</p>
+<ol>
+<li>RF Source</li>
+<li>Test Set</li>
+<li>IF Section</li>
+<li>Display Unit</li>
+</ol>
+<h1 id="specialized-cables">
+  Specialized Cables
+  <a class="anchor" href="#specialized-cables">#</a>
+</h1>
+<p>The 8510C requires specialized interconnect cables:</p>
+<ol>
+<li>Male-Male DB37 Cable. Used for digital interconnect from display to IF section. No twisted pairs or shielding needed.</li>
+<li>GPIB cable from display to test set</li>
+<li>GPIB cable from display to RF source</li>
+<li>Male-Female Coax/D-SUB cable from IF to test set (PN: 08510-60102)</li>
+<li>Test set phase extension loop backs (short male-male 3.5mm semi-rigid coax)</li>
+<li>BNCs for sweep control</li>
+</ol>
+<p>I used a generic DB37 cable for the display to IF interconnect.</p>
+<p>The most expensive cable is the Coax/D-SUB cable from test set to IF. These are mixed DB coax and pin connectors. Cables may be purchased from <a href="https://glkinst.com/cables/hp_cables.htm">GLK</a>. I fabricated my own.
+
+
+
+<style>
+.center_custom {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 768px){
+  .book-article img {
+    min-width: 100%;
+  }
+}
+</style>
+
+<img class="center_custom" style="width:50%" src="/images/HP8510C/ts_coax.webp" />
+<center><b>Rear Test Set Interconnect</b></center>
+</p>
+<p>Part list:</p>
+<ol>
+<li>RG316 Coax</li>
+<li>Stranded 22AWG copper cable</li>
+<li>DB Male RG316 D-SUB connector (7pcs)</li>
+<li>DB Female RG316 D-SUB connector (7pcs)</li>
+<li>24W7 Male D-SUB with solder cup connections</li>
+<li>24W7 Female D-SUB with solder cup connections</li>
+<li>Coax cable crimper</li>
+<li>DB50 plastic housing (2pcs)</li>
+<li>Plastic braided cable sleeve</li>
+</ol>
+<p>The 7 pre-installed power pins on the 24W7 connectors can be removed with a metal punch and hammer. Connections are 1-to-1 for both the pins and coax connections. Note the gender differences.</p>
+
+
+
+<style>
+.center_custom {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 768px){
+  .book-article img {
+    min-width: 100%;
+  }
+}
+</style>
+
+<img class="center_custom" style="width:50%" src="/images/HP8510C/coax_dsub.webp" />
+<center><b>24W7 Male and Female Connector Housings</b></center>
+
+
+
+
+<style>
+.center_custom {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 768px){
+  .book-article img {
+    min-width: 100%;
+  }
+}
+</style>
+
+<img class="center_custom" style="width:50%" src="/images/HP8510C/cable_custom.webp" />
+<center><b>Finished DIY 24W7 Coax&#43;Pin Cable</b></center>
+
+<p>This cable carries the 20MHz IF for the a1, a2, b1, b2 channels. It also carries the tuning voltage for the test set VCO. The test set and IF section form a phaselock system to tune the SRD based samplers to the desired DUT frequency.</p>
+
+
+
+<style>
+.center_custom {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 768px){
+  .book-article img {
+    min-width: 100%;
+  }
+}
+</style>
+
+<img class="center_custom" style="width:50%" src="/images/HP8510C/signal_if_connect.webp" />
+<center><b>IF and Tuning Signals from Test Set</b></center>
+
+<h1 id="if-section">
+  IF Section
+  <a class="anchor" href="#if-section">#</a>
+</h1>
+<p>The HP 85102 IF section must match the display unit suffix. These are sometimes found field upgraded from a &ldquo;B&rdquo; to a &ldquo;C&rdquo; suffix. No one has located a HP CLIP for the B/C 8510 units, so upgrading it yourself is probably not feasible.</p>
+
+
+
+<style>
+.center_custom {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 768px){
+  .book-article img {
+    min-width: 100%;
+  }
+}
+</style>
+
+<img class="center_custom" style="width:50%" src="/images/HP8510C/if.webp" />
+<center><b>HP 85102 IF Section</b></center>
+
+<p>My IF unit was saved from the trash, and in perfect working order. I only needed to remove the front key panel to free up the button mechanisms with silicon lube.</p>
+<h1 id="test-set">
+  Test Set
+  <a class="anchor" href="#test-set">#</a>
+</h1>
+<p>The HP 8514A S-Parameter test set is rated from 500MHz to 18GHz. It can operate down to 45MHz if loss of dynamic range (-30dB) is acceptable to your application. It includes inline 90dB step attenuators for each channel, allowing a wide range of incident power on the DUT. This is useful for amplifiers, and compression testing. Other test sets are available for wider frequency spans if needed. Mine was functional after replacing a blown fuse, and fabricating the missing phase extension loop back cables.</p>
+
+
+
+<style>
+.center_custom {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 768px){
+  .book-article img {
+    min-width: 100%;
+  }
+}
+</style>
+
+<img class="center_custom" style="width:50%" src="/images/HP8510C/ts.webp" />
+<center><b>SRD Samplers and Step Attenuators in Test Set</b></center>
+
+<h1 id="rf-source">
+  RF Source
+  <a class="anchor" href="#rf-source">#</a>
+</h1>
+<p>Several RF source options are supported. The <a href="https://www.kirkbymicrowave.co.uk/Support/vector-network-analyzers/HP-Agilent-Keysight/8510/8510C_Installation_Pre_Flight_checkout.pdf">HP 8510C Preflight Checkout</a> document is handy to ensure all the firmware variants and interconnect requirements are satisfied.</p>
+<p>The HP 8340A/B and HP 8360 series sources are the most desirable options. They are synthesized sources, and result in faster sweep times. They remain extremely expensive on the used market.</p>
+<p>The HP 8350B mainframe is the cheapest option. I already owned a HP 83592B (10MHz to 20GHz) source unit, and mainframe.</p>
+<p>My source unit was initially exhibiting low power (ALC unlevel). This was repaired by a full reassembly, re-torquing the SMA connectors. The unit is a tight packed maze of rigid line coax and RF modules. It&rsquo;s a marvel of mechanical packaging, and a servicing nightmare. After reassembly, I could adjust the YTM &ldquo;peak&rdquo; knob on the front panel to achieve the rated power output at fixed frequency points. Sweeps would still fail with ALC unleveling.</p>
+
+
+
+<style>
+.center_custom {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 768px){
+  .book-article img {
+    min-width: 100%;
+  }
+}
+</style>
+
+<img class="center_custom" style="width:50%" src="/images/HP8510C/alc_2.webp" />
+<center><b>Unlevel Error due to Low Power</b></center>
+
+<p>Those symptoms strongly indicate the YIG filter in the YTM is not being correctly tuned in sweeps.</p>
+
+
+
+<style>
+.center_custom {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 768px){
+  .book-article img {
+    min-width: 100%;
+  }
+}
+</style>
+
+<img class="center_custom" style="width:90%" src="/images/HP8510C/rf_bd.webp" />
+<center><b>HP 83592B RF Block Diagram</b></center>
+
+<p>The service manual provides a procedure to adjust the internal DIP switches to set the YIG filter driver gain and offset for each of the frequency bands. Since I did not have a scalar network analyzer for this adjustment, I used a crystal detector and oscilloscope in X-Y mode. This was sufficient as I only needed relative power measurements to peak the response across each band. Performing this adjustment fully repaired the unit across the full sweep range.</p>
+<p>These HP 8359x plugin modules are densely packed, and the YTMs can fail due to prolonged overheating. If you have a good unit, I strongly suggest you add an additional fan in the frame to keep the unit cool. The YTMs are unrepairable without a deep access wire bonder.</p>
+
+
+
+<style>
+.center_custom {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 768px){
+  .book-article img {
+    min-width: 100%;
+  }
+}
+</style>
+
+<img class="center_custom" style="width:50%" src="/images/HP8510C/fan_note.webp" />
+<center><b>Airflow Improvements for HP 8350B</b></center>
+
+<p>My 8350B mainframe also required some minor repair. The front encoders were nonfunctional. These early HP RPGs have a fixed lifetime. They use a tiny T-1 incandescent lamp as the optical encoder light source. Mine were burnt out, but easily replaced with a model from DigiKey:</p>
+<table>
+  <thead>
+      <tr>
+          <th>PN</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>VCC7216-ND</td>
+          <td>LAMP INCAND T-1 WIRE TERM 5V</td>
+      </tr>
+  </tbody>
+</table>
+<p>The NiCD battery pack also leaked out onto the GPIB PCB, ruining most of the traces. I tried repairing the traces with mod wire, but the damage was too severe.  I swapped it out with a spare GPIB board from my older HP 8350A.</p>
+<h1 id="troubleshooting">
+  Troubleshooting
+  <a class="anchor" href="#troubleshooting">#</a>
+</h1>
+<p>After all of that effort, I assembled my system and found it only would capture in single frequency points. A sweep measurement would fail with a red asterisk. Start/stop frequency could not be adjusted. Frustratingly, no error code was presented. After probing the sweep control board on the IF section with a logic analyzer, I narrowed the issue down to a hang on the system GPIB bus.</p>
+<p>The GPIB bus was hanging because of my foolish swap of GPIB PCB from a HP 8350A sweeper. Even though I previously verified the schematics were identical, I missed a critical BOM change. In the &ldquo;B&rdquo; variant, HP changed the main GPIB controller IC from a D8291 to a D8291A. The A suffix indicates a later IC revision with additional GPIB extensions. Luckily the D8291A on my NiCD acid eaten board was still functional, and swapping ICs brought this VNA to life.</p>
+
+
+
+<style>
+.center_custom {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 768px){
+  .book-article img {
+    min-width: 100%;
+  }
+}
+</style>
+
+<img class="center_custom" style="width:50%" src="/images/HP8510C/acid.webp" />
+<center><b>GPIB Boards for HP 8350A/B</b></center>
+
+<h1 id="plotting">
+  Plotting
+  <a class="anchor" href="#plotting">#</a>
+</h1>
+<p>The 8510C supports most of the HP pen plotter lineup. Just set it to the correct GPIB address, connect to the instrument bus, and click the copy button. Plotter emulator software with a GPIB-USB adapter is another option for digital copies.</p>
+
+
+
+
+
+<style>
+.center_custom {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 3%;
+}
+
+@media (max-width: 768px){
+  .book-article video {
+    min-width: 100%;
+  }
+}
+</style>
+
+<video playsinline autoplay muted loop preload="auto" width="100%" class="center_custom">
+  <source src="/images/HP8510C/vid.webm" type="video/webm">
+</video>
+<center >HP 7550A Plotter</b></center>
+
+
+
+
+<style>
+.center_custom {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 768px){
+  .book-article img {
+    min-width: 100%;
+  }
+}
+</style>
+
+<img class="center_custom" style="width:70%" src="/images/HP8510C/page.webp" />
+<center><b>Plot of DUT Response</b></center>
+
+<h1 id="calibration">
+  Calibration
+  <a class="anchor" href="#calibration">#</a>
+</h1>
+<p>Calibration on this instrument is highly configurable. Cal kits can be defined manually with the keypad, but a USB-GPIB adapter dramatically simplifies the process.</p>
+<p>The 8510C can store coefficients for up to 2 cal kit models. There is no preset option for a generic SOLT cal. The default cal kit definitions are for a HP 3.5mm and 7mm kit, which require a sliding load to complete a cal sequence. Purchasing a professional mechanical cal kit from Keysight would cost 10x what I paid for my entire VNA system, so a DIY approach is needed.</p>
+<p>The coefficients are uploaded via GPIB with a windows program from HP: <a href="https://kirkbymicrowave.co.uk/Support/vector-network-analyzers/HP-Agilent-Keysight/software/VNA-cal-kit-manager.exe">VNA Cal Kit Manager V2.1</a>. You may also use this program to create your own custom cal kits.</p>
+
+
+
+<style>
+.center_custom {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 768px){
+  .book-article img {
+    min-width: 100%;
+  }
+}
+</style>
+
+<img class="center_custom" style="width:50%" src="/images/HP8510C/calkit_man.webp" />
+<center><b>VNA Cal Kit Manager With Custom Coefficients</b></center>
+
+<p>The cal kit coefficients use a standard HP format modeling various circuit elements (offset delay, loss, capacitance, inductance). Capacitance and inductance are expressed as frequency dependent polynomials. If accuracy is non critical, you may create &ldquo;ideal&rdquo; cal kit coefficients for an SOLT style coaxial calibration.</p>
+<p>I used a Keysight PNA + ECal to measure the response of my own 3.5mm SOLT kit. This is needed to create custom models, and to confirm their corrected performance is sufficient for accurate measurements.</p>
+<p>I purchased a handful of high quality 50 Ohm termination and thru rated to 27GHz. I then chose the termination with the lowest return loss, and thru with minimum insertion loss. Load+thru return loss is your limiting factor, and should be as low as possible. Mine measured a respectable -38dB at 10GHz.</p>
+<p>I wrote a Python script to curve fit the HP model coefficients from my SOLT kit based on my measured responses. Some hand tweaking was still required. The scikit-rf page on <a href="https://scikit-rf.readthedocs.io/en/latest/examples/metrology/SOLT%20Calibration%20Standards%20Creation.html">SOLT Calibration Standards Creation </a> is a useful resource to learn about how these standards are modeled.</p>
+<p>My short and opens were from an inexpensive kit. After deembeding my offset delay model, I confirmed their phase difference remains at 180 deg with only a +- 2deg deviation across their frequency range. It is critical to accurately model the &ldquo;Offset Delay&rdquo;, otherwise the measurement phase error will be excessive. For comparison, see the following table for a 26.5GHz cal kit from Keysight.</p>
+
+
+
+<style>
+.center_custom {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 768px){
+  .book-article img {
+    min-width: 100%;
+  }
+}
+</style>
+
+<img class="center_custom" style="width:50%" src="/images/HP8510C/model_85052d.webp" />
+<center><b>Keysight 85052D Cal Kit Performance After Model Correction</b></center>
+
+<p>The HP 8510C C/L models are third order polynomials, and thus can&rsquo;t correct for all responses. I found that even after careful tuning of my coefficients for the HP 8510C, I got higher accuracy results using scikit-rf SOLT calibration on an external PC. The algorithm in scikit-rf directly uses measured touchstone responses of your SOLT &ldquo;ideals&rdquo;, and is not limited to the third order curve fit.</p>
+<h2 id="scikit-rf-virtual-instrument-and-solt">
+  Scikit-rf Virtual Instrument and SOLT
+  <a class="anchor" href="#scikit-rf-virtual-instrument-and-solt">#</a>
+</h2>
+<p>Scikit-rf has a handy module allowing for direct captures from your HP 8510C over GPIB. The output is packaged as a scikit-rf network. Many tools are then available for calibration, deembeding, concatination, and plotting.</p>
+<p>Example of a 2-port measurement using a GPIB-USB adapter:</p>
+<pre tabindex="0"><code>import skrf
+
+vna = skrf.vi.vna.hp.HP8510C(address=&#39;GPIB::15::INSTR&#39;, backend=&#39;@py&#39;)
+vna.set_frequency_sweep(500e6,18e9,801)
+
+meas_ntwk = vna.get_snp_network(ports=(1,2)) # Measure 2-Port Network
+</code></pre><p>Example of scikit-rf SOLT calibration:</p>
+<pre tabindex="0"><code># Ideals
+ideal_short = skrf.Network(&#39;short.s2p&#39;)
+ideal_short = skrf.subnetwork(ideal_short, [0]) # Trim to a 1-port network
+ideal_shorts = skrf.two_port_reflect(ideal_short, ideal_short)
+
+ideal_open = skrf.Network(&#39;open.s2p&#39;)
+ideal_open = skrf.subnetwork(ideal_open, [0]) # Trim to a 1-port network
+ideal_opens = skrf.two_port_reflect(ideal_open, ideal_open)
+
+ideal_load = skrf.Network(&#39;load1.s2p&#39;)
+ideal_load = skrf.subnetwork(ideal_load, [0]) # Trim to a 1-port network
+ideal_loads = skrf.two_port_reflect(ideal_load, ideal_load)
+
+ideal_thru = skrf.Network(&#39;thru.s2p&#39;)
+
+ideals = [
+	ideal_shorts,
+	ideal_opens,
+	ideal_loads,
+	ideal_thru,
+]
+
+measured = [
+	skrf.two_port_reflect(s11_meas_short, s22_meas_short),
+	skrf.two_port_reflect(s11_meas_open, s22_meas_open),
+	skrf.two_port_reflect(s11_meas_load, s22_meas_load),
+	s21_meas_thru,
+]
+
+cal = skrf.SOLT(
+	ideals = ideals,
+	measured = measured,
+)
+
+cal.run()
+cal.name = &#34;solt test 1&#34;
+cal.write()
+</code></pre><p>Measurement of a 1-2GHz RF Isolator. SOLT calibration applied in scikit-rf.
+
+
+
+<style>
+.center_custom {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 768px){
+  .book-article img {
+    min-width: 100%;
+  }
+}
+</style>
+
+<img class="center_custom" style="width:50%" src="/images/HP8510C/isol.webp" />
+<center><b>1-2GHz Isolator</b></center>
+</p>
+
+
+
+<style>
+.center_custom {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 768px){
+  .book-article img {
+    min-width: 100%;
+  }
+}
+</style>
+
+<img class="center_custom" style="width:50%" src="/images/HP8510C/isolator_resp.webp" />
+<center><b>1-2GHz Isolator Response Plot</b></center>
+
+<h1 id="calibration-accuracy-t-check">
+  Calibration Accuracy T-Check
+  <a class="anchor" href="#calibration-accuracy-t-check">#</a>
+</h1>
+<p>Verifying the accuracy of a VNA calibration is typically performed with a precision stepped impedance air lines, or a t-check. Keysight sells stepped air lines for this purpose, but they retail for over $14k. A<a href="https://www.rohde-schwarz.com/uk/applications/t-check-accuracy-test-for-vector-network-analyzers-utilizing-a-tee-junction-application-note_56280-15519.html?change_c=true"> t-check </a> is more attractive as it can be built with less precision. It is constructed as a T junction, with one port terminated to a restive load. Accuracy depends only on the assumption that the T junction is lossless. The exact value of the termination load is non critical.</p>
+<p>Below is a DIY t-check made from two vertical launch SMA connectors, a 100 Ohm SMD resistor, and some copper foil. The foil was fully wrapped around the center conductor with an air gap of ~2mm. All gaps between the foil and connectors were soldered shut. This construction is crude, and only intended for a rough confidence check at lower frequency.</p>
+
+
+
+<style>
+.center_custom {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 768px){
+  .book-article img {
+    min-width: 100%;
+  }
+}
+</style>
+
+<img class="center_custom" style="width:50%" src="/images/HP8510C/diy_t.webp" />
+<center><b>DIY T-Check During Construction</b></center>
+
+<p>The <a href="http://www.ke5fx.com/gpib/readme.htm">KE5FX GPIB Toolkit</a> has a standalone utility which can be used to perform a t-check of any S2P file. Below are results before and after calibration. The results are much better than expected given the rough construction. It would be interesting to take this measurement on a professionally calibrated VNA to compare results.</p>
+
+
+
+<style>
+.center_custom {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 768px){
+  .book-article img {
+    min-width: 100%;
+  }
+}
+</style>
+
+<img class="center_custom" style="width:50%" src="/images/HP8510C/sheilded%20t%20check_nocal.GIF" />
+<center><b>T-Check Result Before Calibration (Max Vertical Scale)</b></center>
+
+
+
+
+<style>
+.center_custom {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 768px){
+  .book-article img {
+    min-width: 100%;
+  }
+}
+</style>
+
+<img class="center_custom" style="width:50%" src="/images/HP8510C/sheilded%20t%20check.GIF" />
+<center><b>T-Check Result After Calibration</b></center>
+
+<h1 id="rack-mounting">
+  Rack mounting
+  <a class="anchor" href="#rack-mounting">#</a>
+</h1>
+<p>One thing to consider with this system is mounting it in your lab. The rear IO must be accessible, so the only good option is rack mounting. The test set must be close to your table to minimize cable length to your DUT. The test set should also be close to the RF source, so you can interconnect them with a minimal length of coax. I used my main 34U rack for the test set and RF source, and a secondary 9U rack on a tool stand for the display and IF section. This was a great solution for me. Note that you will need rails to support this type of gear. I used some 2.5mm thick shelving angle bar for this purpose. Assembling a HP 8510C system can be cost effective, but it will never be compact.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
